@@ -223,10 +223,10 @@ void makeParticle(int x, int y)
 	Particle *p = &g.particle[g.n];
 	p->s.center.x = x;
 	p->s.center.y = y;
-	//p->velocity.y = ((double)rand() / (double)RAND_MAX) - 0.5;
-	//p->velocity.x = ((double)rand() / (double)RAND_MAX) + 2.0;
-    p->velocity.y = -2;
-    p->velocity.x = 2;
+	p->velocity.y = ((double)rand() / (double)RAND_MAX) - 0.5;
+	p->velocity.x = ((double)rand() / (double)RAND_MAX) + 1.0;
+    //p->velocity.y = -2;
+    //p->velocity.x = 2;
 	++g.n;
 }
 
@@ -318,15 +318,15 @@ void movement()
 
         //for (int j = 0; j < 5; ++j) {
             if ( (p->s.center.x >= 40 && p->s.center.x <= 160 && 
-                        p->s.center.y < 400 && p->s.center.y > 380) ||
+                        p->s.center.y < 410 && p->s.center.y > 380) ||
                  (p->s.center.x >= 160 && p->s.center.x < 280 &&
-                        p->s.center.y < 360 && p->s.center.y > 340) ||
+                        p->s.center.y < 370 && p->s.center.y > 340) ||
                  (p->s.center.x >= 280 && p->s.center.x < 400 &&
-                        p->s.center.y < 320 && p->s.center.y > 300) ||
+                        p->s.center.y < 330 && p->s.center.y > 300) ||
                  (p->s.center.x >= 400 && p->s.center.x < 520 &&
-                        p->s.center.y < 280 && p->s.center.y > 260) ||
+                        p->s.center.y < 290 && p->s.center.y > 260) ||
                  (p->s.center.x >= 520 && p->s.center.x < 640 &&
-                        p->s.center.y < 240 && p->s.center.y > 220) ) {
+                        p->s.center.y < 250 && p->s.center.y > 220) ) {
                             p->velocity.y = -(p->velocity.y * 0.2);
             }
         //}
