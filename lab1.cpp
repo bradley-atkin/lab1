@@ -264,8 +264,7 @@ void check_mouse(XEvent *e)
 		if (savex != e->xbutton.x || savey != e->xbutton.y) {
 			savex = e->xbutton.x;
 			savey = e->xbutton.y;
-			//Code placed here will execute whenever the mouse moves.
-			
+			//Code placed here will execute whenever the mouse moves			
 			int y = g.yres - e->xbutton.y;
 			for (int i=0; i<10; i++)
 				makeParticle(e->xbutton.x, y);
@@ -345,47 +344,6 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw shapes...
     //draw the box
-/*
-    //Right way to make a box
-    Shape *s;
-	glColor3ub(90,140,90);
-	s = &g.box;
-	glPushMatrix();
-	glTranslatef(s->center.x, s->center.y, s->center.z);
-	float w, h;
-	w = s->width;
-	h = s->height;
-	glBegin(GL_QUADS);
-		glVertex2i(-w, -h);
-		glVertex2i(-w,  h);
-		glVertex2i( w,  h);
-		glVertex2i( w, -h);
-	glEnd();
-	glPopMatrix();
-
-
-    //Wrong way to make a box, i think
-    Shape s1;
-	glColor3ub(225,225,225);
-	s1 = g.box;
-	glPushMatrix();
-
-    s1.center.x = 300;
-    s1.center.y = 500;
-    //s1.center.y = 30;
-    glTranslatef(s1.center.x, s1.center.y, s1.center.z);
-    
-    //s1->Vec = 50;
-	w = 50;
-	h = 20;
-	glBegin(GL_QUADS);
-		glVertex2i(-w, -h);
-		glVertex2i(-w,  h);
-		glVertex2i( w,  h);
-		glVertex2i( w, -h);
-	glEnd();
-	glPopMatrix();
-*/
     
     //Made an array of boxes, but they don't have collision
     Shape s[5];
@@ -444,13 +402,10 @@ void render()
 	}
 	//
 	//Draw your 2D text here
-    // All of this was super inefficient
-    // but i had SO MUCH fun figuring it all out
     Rect q;
     q.bot = g.yres - 210;
     q.left = 100;
     q.center = 600;
-    //ggprint16(&q, 16, 0xFFFFFFFF, "REQUIREMENTS");
     ggprint8b(&q, 16, 0xffffffff, "REQUIREMENTS");
 
     Rect t;
@@ -477,11 +432,7 @@ void render()
     r.center = 600;
     ggprint8b(&r, 16, 0xffffffff, "MAINTENANCE");
     
-    //Rect f;
-    //f.bot =g.yres - 500;
-    //f.left = 400;
-    //f.center = 600;
-    //ggprint8b(&f, 16, 0xffffffff, "");
+
 }
 
 
